@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="logo.ico" type="image/x-icon">
+    <meta name="author" content="Dominik Łempicki">
+    <title>Edytor styli</title>
+</head>
+
+<body>
+    <aside>
+        Edytor tekstu css
+    </aside>
+    <header>
+        <div id="edycja">
+            <div class="wybierz_opcje">
+                <h3>Tło:</h3>
+                <input type="color" id="background" value="#000000" />
+            </div>
+            <div class="wybierz_opcje">
+                <h3>kolor:</h3>
+                <input type="color" id="color" value="#ffff00" />
+            </div>
+            <div class="wybierz_opcje">
+                <h3>Rozmiar tekstu:</h3>
+                <input min="0" type="number" id="fontSize" value="100" />
+            </div>
+            <div class="wybierz_opcje">
+                <h3>Czcionka:</h3>
+                <select id="fontFamily">
+                    <option value="cursive">cursive</option>
+                    <option value="fantasy">fantasy</option>
+                </select>
+            </div>
+            <div class="wybierz_opcje">
+                <h3>Grubość czcionki:</h3>
+                <input type="number" placeholder="Napisz grubość czcionki" id="fontWeight" value="550" min="100"
+                    max="1000" />
+            </div>
+            <div class="wybierz_opcje">
+                <h3>Położenie czcionki:</h3>
+                <select id="textAlign">
+                    <option value="center">Środek</option>
+                    <option value="left">Do lewej</option>
+                    <option value="justify">Wyjustowny</option>
+                    <option value="end">Do prawej</option>
+                </select>
+            </div>
+            <div class="wybierz_opcje">
+                <h3>Cień tekstu:</h3>
+                <input onchange="cien('textShadow')" id="x" class="cien" placeholder="X" type="number" value="8" />
+                <input onchange="cien('textShadow')" id="y" class="cien" placeholder="Y" type="number" value="12">
+                <input onchange="cien('textShadow')" id="r" class="cien" type="number" min="0" placeholder="R"
+                    value="12">
+                <input onchange="cien('textShadow')" id="c" class="cien" type="color" value="#0d95fd">
+            </div>
+            <div class="wybierz_opcje">
+                <h3>Ramka:</h3>
+                <input onchange="border()" id="border_gruboś" class="cien" placeholder="grubość" type="number"
+                    value="24" min="0" />
+                <input onchange="border()" id="border_kolor" class="cien" placeholder="kolor" type="color"
+                    value="#07ed22">
+                <select onchange="border()" id="border_rodzaj">
+                    <option value="groove">3d</option>
+                    <option value="solid">Prosta linia</option>
+                    <option value="dotted">Przerywana</option>
+                </select>
+            </div>
+            <div class="wybierz_opcje">
+                <h3>Zaokrąglenie:</h3>
+                <input id="borderRadius" value="28" type="number" min="0" />
+            </div>
+            <div class="wybierz_opcje">
+                <h3>Odległość liter:</h3>
+                <input id="letterSpacing" value="1" type="number" />
+            </div>
+            <div class="wybierz_opcje" style="display:block">
+                <h3>Odległość od krawędzi górnej:</h3>
+                <input type="number" id="marginTop" value="0" />
+            </div>
+            <div class="wybierz_opcje" style="display:block">
+                <h3>Odległość od krawędzi lewej:</h3>
+                <input type="number" id="marginLeft" value="0" />
+            </div>
+            <div class="wybierz_opcje" style="display:block">
+                <h3>Wypełnienie:</h3>
+                <input type="number" id="padding" value="0" min="0" />
+            </div>
+            <div class="wybierz_opcje" style="display:block">
+                <button id="nowy" onclick="nowyelement()">Dodaj nowy element</button>
+            </div>
+        </div>
+    </header>
+    <h1 style="width:50%;">Podgląd strony:</h1>
+    <main onkeyup="wypiszkod()">
+        <div id="tresc_bloga"
+            style="position: relative;background: black;font-size: 100px;color:#ffff00;font-family: cursive;font-weight: 900;text-align: center;text-shadow: 8px 12px 16px #0d95fd;border:24px  groove #07ed22;border-radius:28px;">
+            Pisz tutaj treść swojej strony
+        </div>
+    </main>
+    <h1>Podgląd kodu:</h1>
+    <textarea id="kod" onkeyup="edytowaniekody()"></textarea>
+    <footer style="position:fixed;right:0;bottom:0;color:red">&copy Dominik Łempicki</footer>
+    <script src="script.js"></script>
+</body>
+
+</html>

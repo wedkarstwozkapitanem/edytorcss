@@ -1,0 +1,64 @@
+body {
+    background: linear-gradient(48deg, black, rgb(10, 147, 172));
+    min-height: 100vh;
+}
+
+#edycja {
+    min-height: 48px;
+    width: 98%;
+    background: green;
+    border-radius: 28px;
+    border: 3px solid orange;
+    padding: 8px;
+    float: left;
+    margin: 10px;
+}
+
+main {
+    box-shadow: 3px 3px 8px black;
+    min-height: 148px;
+    resize: both;
+    overflow: auto;
+    width: 44%;
+    float: left;
+    margin: 10px;
+}
+
+#kod {
+    width: 50%;
+    min-height: 500px;
+    border: 1px solid black;
+}
+
+.cien {
+    width: 38px;
+}
+
+.wybierz_opcje {
+    float: left;
+    position: relative;
+    margin-left: 24px;
+    margin-bottom: 12px;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.1);
+    padding: 8px;
+    border-radius:8px;
+    box-shadow: 3px 3px black;
+}
+h1 {
+    color:rgb(132, 255, 0);
+    text-align: center;
+}
+aside {
+    font-size: 48px;
+    font-family: fantasy;
+    color:#07ed22;
+    box-shadow: 3px 3px 8px black;
+    text-shadow: 3px 3px 2px orange;
+}
+#nowy {
+    height:68px;font-size:20px;cursor:pointer;background: linear-gradient(45deg,blue,green);border-radius:8px;
+}
+#nowy:hover {
+    opacity:0.4;
+}
