@@ -13,7 +13,9 @@
 
 <body>
     <aside>
+        <div class="tytul">
         Edytor tekstu css
+        </div>
     </aside>
     <header>
         <div id="edycja">
@@ -96,14 +98,14 @@
         </div>
     </header>
     <h1 style="width:50%;">Podgląd strony:</h1>
-    <main onkeyup="wypiszkod()">
-        <div id="tresc_bloga"
+    <main onkeyup="wypiszkod()" onmousemove="znajdztekst()">
+        <div id="tresc_strony"
             style="position: relative;background: black;font-size: 100px;color:#ffff00;font-family: cursive;font-weight: 900;text-align: center;text-shadow: 8px 12px 16px #0d95fd;border:24px  groove #07ed22;border-radius:28px;">
             Pisz tutaj treść swojej strony
         </div>
     </main>
     <h1>Podgląd kodu:</h1>
-    <textarea id="kod" onkeyup="edytowaniekody()"></textarea>
+    <textarea id="kod" onkeyup="edytowaniekody()" onkeydown="zmienmenu()"></textarea>
     <footer style="position:fixed;right:0;bottom:0;color:red">&copy Dominik Łempicki</footer>
     <script src="script.js"></script>
 </body>
