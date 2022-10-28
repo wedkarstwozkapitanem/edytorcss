@@ -1,6 +1,7 @@
 body {
     background: linear-gradient(48deg, black, rgb(10, 147, 172));
     min-height: 100vh;
+    overflow-x: hidden;
 }
 
 #edycja {
@@ -8,10 +9,13 @@ body {
     width: 98%;
     background: green;
     border-radius: 28px;
-    border: 3px solid orange;
+    box-shadow: 0 0 8px black;
+    border:1px solid black;
     padding: 8px;
     float: left;
     margin: 10px;
+    animation: pokazmenu 5s ease;
+    position: relative;
 }
 
 main {
@@ -22,12 +26,14 @@ main {
     width: 44%;
     float: left;
     margin: 10px;
+    animation: pokaz 4s ease;
 }
 
 #kod {
     width: 50%;
     min-height: 500px;
     border: 1px solid black;
+    animation: pokaz 12s ease;
 }
 
 .cien {
@@ -40,7 +46,7 @@ main {
     margin-left: 24px;
     margin-bottom: 12px;
     text-align: center;
-    background: rgba(0, 0, 0, 0.1);
+    background: rgba(0, 0, 0, 0.2);
     padding: 8px;
     border-radius:8px;
     box-shadow: 3px 3px black;
@@ -48,6 +54,7 @@ main {
 h1 {
     color:rgb(132, 255, 0);
     text-align: center;
+    animation: jasnosc 16s ease;
 }
 aside {
     font-size: 48px;
@@ -56,9 +63,58 @@ aside {
     box-shadow: 3px 3px 8px black;
     text-shadow: 3px 3px 2px orange;
 }
+.tytul {
+    position: relative;
+    animation:tytul 4s infinite;
+}
 #nowy {
     height:68px;font-size:20px;cursor:pointer;background: linear-gradient(45deg,blue,green);border-radius:8px;
 }
 #nowy:hover {
     opacity:0.4;
+}
+@keyframes pokaz {
+    0% {
+        opacity: 0;
+        right:-100%;
+        position: relative;
+    }
+    100% {
+        opacity: 1;
+        right:0;
+        position: relative;
+    }
+}
+
+@keyframes jasnosc {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes pokazmenu {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes tytul {
+    0%,100% {
+        letter-spacing: -4px;
+    }
+    25% {
+        letter-spacing: 0px;
+    }
+    50% {
+        letter-spacing: 4px;
+    }
+    75% {
+        letter-spacing: 8px;
+    }
 }
