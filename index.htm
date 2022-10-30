@@ -6,44 +6,46 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <meta name="description" content="Edytuj style css">
     <link rel="shortcut icon" href="logo.ico" type="image/x-icon">
     <meta name="author" content="Dominik Łempicki">
-    <title>Edytor styli</title>
+    <title>Edytor styli czcionki css</title>
 </head>
 
 <body>
     <aside>
         <div class="tytul">
-        Edytor tekstu css
+            Edytor tekstu css
         </div>
     </aside>
     <header>
         <div id="edycja">
-            <div class="wybierz_opcje">
+            <div class="wybierz_opcje" title="tło">
                 <h3>Tło:</h3>
-                <input type="color" id="background" value="#000000" />
+                <input type="color" id="background" value="#000000" placeholder="tło (16-kowe)" />
             </div>
-            <div class="wybierz_opcje">
+            <div class="wybierz_opcje" title="kolor">
                 <h3>kolor:</h3>
-                <input type="color" id="color" value="#ffff00" />
+                <input type="color" id="color" value="#ffff00" placeholder="kolor (16-kowe)" />
             </div>
-            <div class="wybierz_opcje">
+            <div class="wybierz_opcje" title="rozmiar tekstu">
                 <h3>Rozmiar tekstu:</h3>
-                <input min="0" type="number" id="fontSize" value="100" />
+                <input min="0" type="number" id="fontSize" value="100" placeholder="rozmiar (px)" />
             </div>
-            <div class="wybierz_opcje">
+            <div class="wybierz_opcje" title="czcionka">
                 <h3>Czcionka:</h3>
                 <select id="fontFamily">
                     <option value="cursive">cursive</option>
                     <option value="fantasy">fantasy</option>
+                    <option value="auto">Automatyczna</option>
                 </select>
             </div>
-            <div class="wybierz_opcje">
+            <div class="wybierz_opcje" title="grubość">
                 <h3>Grubość czcionki:</h3>
                 <input type="number" placeholder="Napisz grubość czcionki" id="fontWeight" value="550" min="100"
                     max="1000" />
             </div>
-            <div class="wybierz_opcje">
+            <div class="wybierz_opcje" title="układ">
                 <h3>Położenie czcionki:</h3>
                 <select id="textAlign">
                     <option value="center">Środek</option>
@@ -52,7 +54,7 @@
                     <option value="end">Do prawej</option>
                 </select>
             </div>
-            <div class="wybierz_opcje">
+            <div class="wybierz_opcje" title="cień tekstu">
                 <h3>Cień tekstu:</h3>
                 <input onchange="cien('textShadow')" id="x" class="cien" placeholder="X" type="number" value="8" />
                 <input onchange="cien('textShadow')" id="y" class="cien" placeholder="Y" type="number" value="12">
@@ -60,7 +62,7 @@
                     value="12">
                 <input onchange="cien('textShadow')" id="c" class="cien" type="color" value="#0d95fd">
             </div>
-            <div class="wybierz_opcje">
+            <div class="wybierz_opcje" title="ramka">
                 <h3>Ramka:</h3>
                 <input onchange="border()" id="border_gruboś" class="cien" placeholder="grubość" type="number"
                     value="24" min="0" />
@@ -72,42 +74,97 @@
                     <option value="dotted">Przerywana</option>
                 </select>
             </div>
-            <div class="wybierz_opcje">
+            <div class="wybierz_opcje" title="zaokrąglenie rogów">
                 <h3>Zaokrąglenie:</h3>
-                <input id="borderRadius" value="28" type="number" min="0" />
+                <input id="borderRadius" value="28" type="number" min="0" placeholder="zaokrąglenie" />
             </div>
             <div class="wybierz_opcje">
                 <h3>Odległość liter:</h3>
                 <input id="letterSpacing" value="1" type="number" />
             </div>
-            <div class="wybierz_opcje" style="display:block">
+            <div class="wybierz_opcje" style="display:block" title="położenie">
                 <h3>Odległość od krawędzi górnej:</h3>
-                <input type="number" id="marginTop" value="0" />
+                <input type="number" id="marginTop" value="0" placeholder="margines" />
             </div>
-            <div class="wybierz_opcje" style="display:block">
+            <div class="wybierz_opcje" style="display:block" title="położenie">
                 <h3>Odległość od krawędzi lewej:</h3>
-                <input type="number" id="marginLeft" value="0" />
+                <input type="number" id="marginLeft" value="0" placeholder="położenie" />
             </div>
-            <div class="wybierz_opcje" style="display:block">
+            <div class="wybierz_opcje" style="display:block" title="wypełnienie">
                 <h3>Wypełnienie:</h3>
-                <input type="number" id="padding" value="0" min="0" />
+                <input type="number" id="padding" min="0" />
             </div>
-            <div class="wybierz_opcje" style="display:block">
-                <button id="nowy" onclick="nowyelement()">Dodaj nowy element</button>
+            <div class="wybierz_opcje" style="display:block" title="liczba od 0 do 1 w formacie 0,4">
+                <h3>Przezroczystość:</h3>
+                <input type="number" id="opacity" min="0" max="1" placeholder="Liczba od 0 do 1 w formacie 0,4" value="1"/>
             </div>
+            <div class="wybierz_opcje" title="cień elementu">
+                <h3>Cień elementu:</h3>
+                <input onchange="cien('boxShadow')" id="xe" class="cien" placeholder="X" type="number" value="8" />
+                <input onchange="cien('boxShadow')" id="ye" class="cien" placeholder="Y" type="number" value="12">
+                <input onchange="cien('boxShadow')" id="re" class="cien" type="number" min="0" placeholder="R"
+                    value="12">
+                <input onchange="cien('boxShadow')" id="ce" class="cien" type="color" value="#0d95fd">
+            </div>
+            <div class="wybierz_opcje" style="display:block" title="Szerokość">
+                <h3>Szerokość:</h3>
+                <input type="number" id="width"  placeholder="Szerokość"/>
+            </div>
+            <div class="wybierz_opcje" style="display:block" title="Wysokość">
+                <h3>Wysokość:</h3>
+                <input type="number" id="height" placeholder="Wysokość" />
+            </div>
+            <div class="wybierz_opcje" style="display:block" title="nowy element">
+                <button id="nowy" onclick="nowyelement('w')">Dodaj element w tym</button>
+            </div>
+            <div class="wybierz_opcje" style="display:block" title="nowy element">
+                <button id="nowy" onclick="nowyelement('p')">Dodaj nowy element</button>
+            </div>
+            <div class="wybierz_opcje" style="display:block;" title="nowy element">
+                <button id="nowy" onclick="usunelement()" style="background: linear-gradient(45deg,red,orange);">Usuń element</button>
+            </div>
+
         </div>
     </header>
-    <h1 style="width:50%;">Podgląd strony:</h1>
-    <main onkeyup="wypiszkod()" onmousemove="znajdztekst()">
-        <div id="tresc_strony"
-            style="position: relative;background: black;font-size: 100px;color:#ffff00;font-family: cursive;font-weight: 900;text-align: center;text-shadow: 8px 12px 16px #0d95fd;border:24px  groove #07ed22;border-radius:28px;">
-            Pisz tutaj treść swojej strony
+
+    <div style="position:relative;z-index: 12;">
+        <h1 style="width:50%;">Podgląd strony:</h1>
+        <main onkeyup="wypiszkod()" onmousemove="znajdztekst()" >
+            <div id="tresc_strony1"
+                style="position: relative;background: black;font-size: 100px;color:#ffff00;font-family: cursive;font-weight: 900;text-align: center;text-shadow: 8px 12px 16px #0d95fd;border:24px  groove #07ed22;border-radius:28px;">
+                Pisz tutaj treść swojej strony
+            </div>
+        </main>
+        <h1>Podgląd kodu:</h1>
+        <textarea id="kod" onkeyup="edytowaniekody()"></textarea>
+        <div style="clear: both;position: absolute;bottom:0;left:0;"><button onclick="uruchomstrone()"
+                style="position: fixed;right:0;bottom:0;color:rgb(51, 255, 0);font-size:48px;background:black;color:white;font-family:fantasy;border:1px groove green;cursor:pointer">🔍Powieksz</button>
         </div>
-    </main>
-    <h1>Podgląd kodu:</h1>
-    <textarea id="kod" onkeyup="edytowaniekody()" onkeydown="zmienmenu()"></textarea>
-    <footer style="position:fixed;right:0;bottom:0;color:red">&copy Dominik Łempicki</footer>
-    <script src="script.js"></script>
+        <div id="powiekszonastrona" style="display: none;">
+            <div class="zamknij" style="right:88px;font-size:40px;" onclick="pokazkod()">📝kod</div>
+            <div class="zamknij" onclick="zamknijstrone('powiekszonastrona')">X</div>
+            <div id="strona"></div>
+        </div>
+        <div id="powiekszonykod" style="display: none;">
+            <div class="zamknij" style="right:88px;font-size:34px;" onclick="uruchomstrone()">📟www</div>
+            <div class="zamknij" onclick="zamknijstrone('powiekszonykod')">X</div>
+            <textarea onkeyup="wypiszkodpow()" id="kodpowieksz" style="width: 80%;height: 80%;">
+        </textarea>
+        </div>
+        <footer style="position:fixed;right:268px;bottom:0;color:red">&copy Dominik Łempicki</footer>
+    </div>
+    <script src="script.js" type="text/javascript"></script>
 </body>
 
 </html>
+<script>
+    function znajdztekst() {
+        var text = "";
+        if (window.getSelection) {
+            text = window.getSelection().toString();
+        } else if (document.selection && document.selection.type != "Control") {
+            text = document.selection.createRange().text;
+        }
+        console.log(text);
+    }
+</script>
