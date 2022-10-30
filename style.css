@@ -15,7 +15,8 @@ body {
     float: left;
     margin: 10px;
     animation: pokazmenu 5s ease;
-    position: relative;
+    z-index: 24;
+
 }
 
 main {
@@ -50,6 +51,7 @@ main {
     padding: 8px;
     border-radius:8px;
     box-shadow: 3px 3px black;
+    z-index: 88;
 }
 h1 {
     color:rgb(132, 255, 0);
@@ -116,5 +118,44 @@ aside {
     }
     75% {
         letter-spacing: 8px;
+    }
+}
+
+
+#powiekszonastrona,#powiekszonykod {
+    position: fixed;
+    left:0;
+    bottom:0;
+    background: rgb(255, 255, 255);
+    z-index: 48;
+    width: 100%;
+    height: 100%;
+}
+
+.zamknij {
+    position: fixed;
+    right: 0;
+    top:0;
+    font-size: 88px;
+    background-color: red;
+    color:black;
+    z-index: 128;
+    width: 100px;
+    height: 100px;
+    cursor: pointer;
+    text-align: center;
+    border:1px solid black;
+}
+.zamknij:hover {
+background-color: black;
+color:red;
+}
+
+@media screen and (max-width:1000px) {
+    main {
+        width: 100% !important;
+    }
+    #kod {
+        width: 100% !important;
     }
 }
