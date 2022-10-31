@@ -4,12 +4,14 @@ document.querySelector('main').contentEditable = "true";
 var liczbaelementow = 2; //liczba tresci;
 
 
-var gdzie = "#tresc_strony1";
+var gdzie = "#tresc_strony_1";
 function dodajstyl(opcja, px) {
-    document.getElementById(opcja).addEventListener('change', function () {
+    document.getElementById(opcja).addEventListener('change', () => {
         if (px == 'p') {
             document.querySelector(gdzie).style[opcja] = document.getElementById(opcja).value + 'px';
-        } else {
+        } else if (px == "pr") {
+            document.querySelector(gdzie).style[opcja] = document.getElementById(opcja).value + '%';
+        }  else {
             document.querySelector(gdzie).style[opcja] = document.getElementById(opcja).value
         }
         wypiszkod();
@@ -18,6 +20,8 @@ function dodajstyl(opcja, px) {
     document.getElementById(opcja).addEventListener('keyup', function () {
         if (px == 'p') {
             document.querySelector(gdzie).style[opcja] = document.getElementById(opcja).value + 'px';
+        } else if (px == "pr") {
+            document.querySelector(gdzie).style[opcja] = document.getElementById(opcja).value + '%';
         } else {
             document.querySelector(gdzie).style[opcja] = document.getElementById(opcja).value
         }
@@ -28,7 +32,7 @@ function dodajstyl(opcja, px) {
 
 function wypiszkod() {
     sprawdzkod();
-    if (/*document.getElementById('tresc_strony').innerHTML != '' &&*/ typeof (document.getElementById('tresc_strony')) != undefined) {
+    if (/*document.getElementById('tresc_strony_').innerHTML != '' &&*/ typeof (document.getElementById('tresc_strony_')) != undefined) {
         document.getElementById('kod').value = document.querySelector('main').innerHTML;
     } else {
         edytowaniekody();
@@ -39,7 +43,7 @@ function edytowaniekody() {
     zmienmenu();
 }
 
-window.onload = function () {
+window.onload = () => {
     dodajstyl('background');
     dodajstyl('color')
     dodajstyl('fontSize', 'p');
@@ -52,13 +56,13 @@ window.onload = function () {
     dodajstyl('marginLeft', 'p');
     dodajstyl('padding', 'p');
     dodajstyl('opacity');
-    dodajstyl('width', 'p');
+    dodajstyl('width', 'pr');
     dodajstyl('height', 'p');
     wypiszkod();
 }
 
 function odtworz() {
-    document.querySelector('main').innerHTML = '<div id="tresc_strony" style="background: black;font-size: 104px;color:#ffff00;font-family: cursive;font-weight: 900;text-align: center;">';
+    document.querySelector('main').innerHTML = '<div id="tresc_strony_1" style="background: black;font-size: 104px;color:#ffff00;font-family: cursive;font-weight: 900;text-align: center;">';
 }
 
 function cien(co) {
@@ -83,7 +87,7 @@ function nowyelementw() {
 
 function nowyelement(g) {
     let nowyelementp = document.createElement('div');
-    nowyelementp.id = 'tresc_strony' + liczbaelementow;
+    nowyelementp.id = 'tresc_strony_' + liczbaelementow;
     nowyelementp.innerText = "Tutaj nowa treść";
     nowyelementp.style.position = "relative";
     nowyelementp.style.fontSize = "48px";
@@ -93,7 +97,7 @@ function nowyelement(g) {
         document.querySelector(gdzie).appendChild(nowyelementp);
     }
     wypiszkod();
-    gdzie = '#tresc_strony' + liczbaelementow;
+    gdzie = '#tresc_strony_' + liczbaelementow;
 
 
     for (i = 0; i < document.querySelectorAll('input').length; i++) {
@@ -133,7 +137,7 @@ function usunelement() {
 
     if (document.querySelector('main').innerHTML == "") {
         nowyelementp = document.createElement('div');
-        nowyelementp.id = "tresc_strony";
+        nowyelementp.id = "tresc_strony_";
         document.querySelector('main').appendChild(nowyelementp);
     }
     sprawdzkod();
@@ -152,22 +156,20 @@ function ktoryelement() {
 }
 
 function sprawdzkod() {
-    if (document.querySelector('main').innerHTML == '' || document.querySelector('main').innerHTML == '\n            \n        ' || gdzie == "tresc_strony") {
+    if (document.querySelector('main').innerHTML == '' || document.querySelector('main').innerHTML == '\n            \n        ' || gdzie == "tresc_strony__") {
         nowyelementp = document.createElement('div');
         nowyelementp.style.position = "relative";
         nowyelementp.innerText = "Pisz tutaj tekst";
         //     nowyelement.style.width = "100%";
-        nowyelementp.id = "tresc_strony0";
+        nowyelementp.id = "tresc_strony__0";
         nowyelementp.style.fontSize = "48px";
         document.querySelector('main').appendChild(nowyelementp);
 
 
 
-
-
-
         zmienid();
         wypiszkod();
+        ktoryelement();
     }
 }
 
@@ -211,7 +213,7 @@ function zmienmenu() {
     pobieraniestylowcss('marginLeft', 'p');
     pobieraniestylowcss('padding', 'p');
     pobieraniestylowcss('opacity');
-    pobieraniestylowcss('width', 'p');
+    pobieraniestylowcss('width', 'pr');
     pobieraniestylowcss('height', 'p');
     wypiszkod();
 }
@@ -224,6 +226,7 @@ function uruchomstrone() {
     document.location.hash = "strona_powiekszona";
     document.getElementById('powiekszonykod').style.display = "none";
     document.getElementById('edycja').style.display = "none";
+    document.querySelector('body').classList.add('usunpasek');
 }
 
 function pokazkod() {
@@ -232,6 +235,7 @@ function pokazkod() {
     document.getElementById('kodpowieksz').value = document.querySelector('main').innerHTML;
     document.location.hash = "kod_zrodlowy";
     document.getElementById('edycja').style.display = "none";
+    document.querySelector('body').classList.add('usunpasek');
 }
 
 
@@ -248,6 +252,7 @@ function zamknijstrone(co) {
     document.getElementById(co).style.display = 'none'
     document.location.hash = "edytuj";
     document.getElementById('edycja').style.display = "block";
+    document.querySelector('body').classList.remove('usunpasek');
 }
 
 
@@ -261,10 +266,10 @@ function zmienid() {
     liczbaelementow = document.querySelectorAll('main div').length;
     for (i = 0; i < liczbaelementow; i++) {
         let ktory = parseFloat(i) + parseFloat(1);
-        document.querySelectorAll('main div')[i].id = "tresc_strony" + ktory;
+        document.querySelectorAll('main div')[i].id = "tresc_strony__" + ktory;
 
 
-        document.querySelectorAll('main div')[i].addEventListener('change', function () {
+        document.querySelectorAll('main div')[i].addEventListener('change', () => {
             if (px == 'p') {
                 document.querySelectorAll('main div')[i].style[opcja] = document.getElementById(opcja).value + 'px';
             } else {
@@ -273,7 +278,7 @@ function zmienid() {
             wypiszkod();
         });
 
-        document.querySelectorAll('main div')[i].addEventListener('keyup', function () {
+        document.querySelectorAll('main div')[i].addEventListener('keyup', () => {
             if (px == 'p') {
                 document.querySelector(gdzie).style[opcja] = document.getElementById(opcja).value + 'px';
             } else {
@@ -283,7 +288,7 @@ function zmienid() {
         });
     }
     liczbaelementow = parseFloat(liczbaelementow);
-    gdzie = "#tresc_strony" + liczbaelementow;
+    gdzie = "#tresc_strony__" + liczbaelementow;
     wypiszkod();
     zmienmenu();
 }
