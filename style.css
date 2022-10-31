@@ -32,7 +32,7 @@ main {
 
 #kod {
     width: 50%;
-    min-height: 500px;
+    min-height: 688px;
     border: 1px solid black;
     animation: pokaz 12s ease;
 }
@@ -169,4 +169,8 @@ color:red;
     #kod {
         width: 100% !important;
     }
+}
+
+#tresc_strony__1 {
+    min-height: 100vh;
 }
