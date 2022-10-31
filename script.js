@@ -58,6 +58,12 @@ window.onload = () => {
     dodajstyl('opacity');
     dodajstyl('width', 'pr');
     dodajstyl('height', 'p');
+
+    for (i=1;i<document.querySelectorAll('main div').length;i++) {
+        gdzie = '#tresc_strony__' + i;
+        ktoryelement();
+    }
+    zmienid();
     wypiszkod();
 }
 
