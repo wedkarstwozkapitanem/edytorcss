@@ -130,6 +130,7 @@ aside {
     z-index: 48;
     width: 100%;
     height: 100%;
+    overflow: auto;
 }
 
 .zamknij {
@@ -144,13 +145,23 @@ aside {
     height: 100px;
     cursor: pointer;
     text-align: center;
-    border:1px solid black;
+    border:1px groove silver;
 }
 .zamknij:hover {
 background-color: black;
 color:red;
 }
 
+.usunpasek {
+    overflow: hidden;
+}
+.uruchom {
+    position: fixed;right:0;bottom:0;color:rgb(51, 255, 0);font-size:48px;background:black;color:white;font-family:fantasy;border:2px groove rgb(79, 84, 79);cursor:pointer
+}
+.uruchom:hover {
+    background: white;
+    color: black;
+}
 @media screen and (max-width:1000px) {
     main {
         width: 100% !important;
