@@ -96,7 +96,8 @@
             </div>
             <div class="wybierz_opcje" style="display:block" title="liczba od 0 do 1 w formacie 0,4">
                 <h3>Przezroczystość:</h3>
-                <input type="number" id="opacity" min="0" max="1" placeholder="Liczba od 0 do 1 w formacie 0,4" value="1"/>
+                <input type="number" id="opacity" min="0" max="1" placeholder="Liczba od 0 do 1 w formacie 0,4"
+                    value="1" />
             </div>
             <div class="wybierz_opcje" title="cień elementu">
                 <h3>Cień elementu:</h3>
@@ -108,7 +109,7 @@
             </div>
             <div class="wybierz_opcje" style="display:block" title="Szerokość">
                 <h3>Szerokość:</h3>
-                <input type="number" id="width"  placeholder="Szerokość"/>
+                <input type="number" id="width" placeholder="Szerokość" />
             </div>
             <div class="wybierz_opcje" style="display:block" title="Wysokość">
                 <h3>Wysokość:</h3>
@@ -121,7 +122,8 @@
                 <button id="nowy" onclick="nowyelement('p')">Dodaj nowy element</button>
             </div>
             <div class="wybierz_opcje" style="display:block;" title="nowy element">
-                <button id="nowy" onclick="usunelement()" style="background: linear-gradient(45deg,red,orange);">Usuń element</button>
+                <button id="nowy" onclick="usunelement()" style="background: linear-gradient(45deg,red,orange);">Usuń
+                    element</button>
             </div>
 
         </div>
@@ -129,11 +131,22 @@
 
     <div style="position:relative;z-index: 12;">
         <h1 style="width:50%;">Podgląd strony:</h1>
-        <main onkeyup="wypiszkod()" onmousemove="znajdztekst()" >
-            <div id="tresc_strony_1"
-                style="position: relative;background: black;font-size: 100px;color:#ffff00;font-family: cursive;font-weight: 900;text-align: center;text-shadow: 8px 12px 16px #0d95fd;border:24px  groove #07ed22;border-radius:28px;">
-                Pisz tutaj treść swojej strony
-            </div>
+        <main onkeyup="wypiszkod()" onmousemove="znajdztekst()">
+
+
+
+            <div id="tresc_strony__1" style="background: url(&quot;tlo.png&quot;); padding: 48px; border: 8px solid rgb(7, 237, 180); border-radius: 25px;">
+                <div id="tresc_strony__2" style="position: relative; border: 4px groove rgb(7, 126, 237); text-align: justify; background: rgb(0, 132, 255); color: rgb(4, 255, 0); text-shadow: rgb(13, 149, 253) 0px 0px 6px; border-radius: 128px; font-family: fantasy; font-size: 68px; margin-left: -48px; padding: 48px; margin-top: -45px; width: 40%; letter-spacing: -6px; box-shadow: rgb(13, 253, 41) 8px 12px 12px;">
+                    <div id="tresc_strony__3" style="letter-spacing: 2px; width: 108%; margin-left: 0px; box-shadow: rgb(18, 18, 18) 0px 0px 0px; padding: 0px; text-align: center;">😊Na zdrowie!!!</div>
+                </div><br>
+                <div id="tresc_strony__4" style="position: relative; font-size: 40px; border: 4px dotted rgb(237, 176, 7); background: rgb(224, 0, 0); color: rgb(175, 237, 2); border-radius: 17px; text-align: center; padding: 4px; font-family: cursive; letter-spacing: 8px; margin-top: 46px; box-shadow: rgb(18, 18, 18) 15px 18px 15px;">🔶Krótko o śniadaniu:<br>
+                    <div id="tresc_strony__5" style="position: relative; font-size: 35px; text-shadow: rgb(13, 193, 253) 0px 0px 8px; background: rgb(153, 0, 0); border-radius: 17px; padding: 4px; border: 0px dotted rgb(237, 176, 7); letter-spacing: -2px; color: rgb(187, 255, 0);">📋Śniadanie to podstawowy dzienny posiłek</div>
+                <div id="tresc_strony__6" style="position: relative; font-size: 28px; color: rgb(240, 188, 0); background: rgb(140, 13, 13); text-shadow: rgb(13, 149, 253) 0px 0px 4px; margin-top: 12px; border-radius: 28px;">😎Zmiejsza apetyt w ciągu dnia</div><div id="tresc_strony__7" style="position: relative; font-size: 28px; background: rgb(245, 16, 0); border-radius: 28px; margin-top: 28px; text-shadow: rgb(13, 149, 253) 0px 0px 8px;">🦴Poprawia samopoczucie i zdrowie</div></div>
+                <div id="tresc_strony__8" style="position: relative; font-size: 48px; text-align: center; border: 12px groove rgb(7, 237, 34); background: rgb(0, 255, 110); margin-top: 48px; border-radius: 24px; padding: 10px; color: rgb(255, 0, 0); font-family: cursive; letter-spacing: 4px; box-shadow: rgb(18, 18, 18) 16px 18px 15px; text-shadow: rgb(15, 15, 15) 3px 3px 8px;">🤾🏻‍♀️Najlepsi sportowcy zawsze przestrzegają diety jedząc śniadanie co ranek</div>
+                <div id="tresc_strony__9" style="position: relative; font-size: 48px; background: rgb(30, 255, 0); margin-top: 84px; color: rgb(255, 102, 0); padding: 18px; text-align: center; border: 24px groove rgb(7, 237, 23); border-radius: 28px; text-shadow: rgb(5, 5, 5) 4px 4px 4px; box-shadow: rgb(18, 18, 18) 16px 18px 15px;">😉Nigdy nie zapominaj o śniadaniu!!!!</div> 
+            <div id="tresc_strony__10" style="position: relative; font-size: 40px; border: 12px groove rgb(7, 237, 34); padding: 8px; margin-top: 48px; background: rgb(255, 213, 0); border-radius: 48px; box-shadow: rgb(0, 0, 0) 8px 8px 8px; color: rgb(0, 51, 255); font-family: fantasy;">&nbsp;🎣🥋Spędzaj aktywnie&nbsp; czas:<iframe width="100%" height="608" src="https://www.youtube.com/embed/8IygKvujABw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div></div>
+
+        
         </main>
         <h1>Podgląd kodu:</h1>
         <textarea id="kod" onkeyup="edytowaniekody()"></textarea>
@@ -168,3 +181,7 @@
         console.log(text);
     }
 </script>
+            <!--    <div id="tresc_strony_1"
+                style="position: relative;background: black;font-size: 100px;color:#ffff00;font-family: cursive;font-weight: 900;text-align: center;text-shadow: 8px 12px 16px #0d95fd;border:24px  groove #07ed22;border-radius:28px;">
+                Pisz tutaj treść swojej strony
+            </div> -->
