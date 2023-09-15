@@ -4,7 +4,7 @@ document.querySelector('main').contentEditable = "true";
 var liczbaelementow = 2; //liczba tresci;
 
 
-var gdzie = "#tresc_strony_1";
+var gdzie = "#tresc_strony__1";
 function dodajstyl(opcja, px) {
     document.getElementById(opcja).addEventListener('change', () => {
         if (px == 'p') {
