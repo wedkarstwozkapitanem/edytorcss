@@ -156,7 +156,7 @@ ktoryelement();
 
 function ktoryelement() {
     document.querySelector(gdzie).addEventListener('click', function (p) {
-        gdzie = '#' + p.path[0].attributes[0].value;
+        gdzie = '#' + p.id;//p.path[0].attributes[0].value;
         zmienmenu();
     })
 }
