@@ -4,7 +4,7 @@ document.querySelector('main').contentEditable = "true";
 var liczbaelementow = 2; //liczba tresci;
 
 
-var gdzie = "#tresc_strony__1";
+var gdzie = "#tresc_strony_1";
 function dodajstyl(opcja, px) {
     document.getElementById(opcja).addEventListener('change', () => {
         if (px == 'p') {
@@ -156,7 +156,7 @@ ktoryelement();
 
 function ktoryelement() {
     document.querySelector(gdzie).addEventListener('click', function (p) {
-        gdzie = '#' + p.id;//p.path[0].attributes[0].value;
+        gdzie = '#' + p.path[0].attributes[0].value;
         zmienmenu();
     })
 }
