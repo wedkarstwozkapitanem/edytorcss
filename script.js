@@ -96,6 +96,7 @@ window.onload = () => {
 function odtworz() {
     document.querySelector('main').innerHTML = '<div id="tresc_strony_1" style="background: black;font-size: 104px;color:#ffff00;font-family: cursive;font-weight: 900;text-align: center;">';
     document.getElementById('tresc_strony_1').contentEditable = true;
+    wlaczEdycje();
 }
 
 function cien(co) {
