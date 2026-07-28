@@ -177,7 +177,7 @@ function sprawdzkod() {
         nowyelementp.id = "tresc_strony__0";
         nowyelementp.style.fontSize = "48px";
         document.querySelector('main').appendChild(nowyelementp);
-
+        nowyelementp.contentEditable = true;
 
 
         zmienid();
