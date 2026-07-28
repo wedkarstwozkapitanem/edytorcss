@@ -1,11 +1,25 @@
 var liczbaelementow = 2; //liczba tresci;
 
 
+
+
 var gdzie = "#tresc_strony__1";
 
 function wlaczEdycje() {
     document.querySelectorAll('main div').forEach(element => {
         element.contentEditable = true;
+    });
+}
+
+function wylaczEdycje() {
+    document.querySelectorAll('main div').forEach(element => {
+        element.removeAttribute('contenteditable');
+    });
+}
+
+function czyscKod() {
+    document.querySelectorAll('[contenteditable]').forEach(el => {
+        el.removeAttribute('contenteditable');
     });
 }
 
@@ -36,16 +50,22 @@ function dodajstyl(opcja, px) {
 
 function wypiszkod() {
     sprawdzkod();
-    if (/*document.getElementById('tresc_strony_').innerHTML != '' &&*/ typeof (document.getElementById('tresc_strony_')) != null) {
-        document.getElementById('kod').value = document.querySelector('main').innerHTML;
+    let kopia = document.querySelector("main").cloneNode(true);
+
+    if (/*document.getElementById('tresc_strony_').innerHTML != '' &&*/ typeof (kopia) != null) {
+        kopia.querySelectorAll('[contenteditable]').forEach(el => {
+            el.removeAttribute('contenteditable');
+        });
+        document.getElementById('kod').value = kopia.innerHTML;
     } else {
         edytowaniekody();
     }
+    //wlaczEdycje();
 }
 function edytowaniekody() {
     document.querySelector('main').innerHTML = document.getElementById('kod').value;
-    wlaczEdycje();
     zmienmenu();
+    wlaczEdycje();
 }
 
 window.onload = () => {
@@ -70,10 +90,12 @@ window.onload = () => {
     }
     zmienid();
     wypiszkod();
+    wlaczEdycje();
 }
 
 function odtworz() {
     document.querySelector('main').innerHTML = '<div id="tresc_strony_1" style="background: black;font-size: 104px;color:#ffff00;font-family: cursive;font-weight: 900;text-align: center;">';
+    document.getElementById('tresc_strony_1').contentEditable = true;
 }
 
 function cien(co) {
@@ -91,7 +113,6 @@ function border() {
 function nowyelementw() {
     let nowyelementp = document.createElement('div');
     nowyelementp.classList = gdzie + i;
-    nowyelementp.contentEditable = true;
     document.querySelector(gdzie).appendChild(nowyelementp);
     wypiszkod();
     i++;
@@ -99,7 +120,6 @@ function nowyelementw() {
 
 function nowyelement(g) {
     let nowyelementp = document.createElement('div');
-    nowyelementp.contentEditable = true;
     nowyelementp.id = 'tresc_strony_' + liczbaelementow;
     nowyelementp.innerText = "Tutaj nowa treść";
     nowyelementp.style.position = "relative";
@@ -176,7 +196,6 @@ function sprawdzkod() {
         //     nowyelement.style.width = "100%";
         nowyelementp.id = "tresc_strony__0";
         nowyelementp.style.fontSize = "48px";
-        nowyelementp.contentEditable = true;
         document.querySelector('main').appendChild(nowyelementp);
 
         zmienid();
@@ -242,12 +261,14 @@ function uruchomstrone() {
 }
 
 function pokazkod() {
+    czyscKod();
     document.getElementById('powiekszonastrona').style.display = "none";
     document.getElementById('powiekszonykod').style.display = "block";
     document.getElementById('kodpowieksz').value = document.querySelector('main').innerHTML;
     document.location.hash = "kod_zrodlowy";
     document.getElementById('edycja').style.display = "none";
     document.querySelector('body').classList.add('usunpasek');
+    wlaczEdycje();
 }
 
 
@@ -303,4 +324,5 @@ function zmienid() {
     gdzie = "#tresc_strony__" + liczbaelementow;
     wypiszkod();
     zmienmenu();
+    wlaczEdycje();
 }
