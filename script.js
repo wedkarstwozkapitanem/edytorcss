@@ -1,4 +1,6 @@
-document.querySelector('main').contentEditable = "true";
+document.querySelectorAll('main div').forEach(element => {
+    element.contentEditable = true;
+});
 
 
 var liczbaelementow = 2; //liczba tresci;
@@ -86,6 +88,7 @@ function border() {
 function nowyelementw() {
     let nowyelementp = document.createElement('div');
     nowyelementp.classList = gdzie + i;
+    nowyelementp.contentEditable = true;
     document.querySelector(gdzie).appendChild(nowyelementp);
     wypiszkod();
     i++;
@@ -93,6 +96,7 @@ function nowyelementw() {
 
 function nowyelement(g) {
     let nowyelementp = document.createElement('div');
+    nowyelementp.contentEditable = true;
     nowyelementp.id = 'tresc_strony_' + liczbaelementow;
     nowyelementp.innerText = "Tutaj nowa treść";
     nowyelementp.style.position = "relative";
