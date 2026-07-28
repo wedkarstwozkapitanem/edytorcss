@@ -1,12 +1,14 @@
-document.querySelectorAll('main div').forEach(element => {
-    element.contentEditable = true;
-});
-
-
 var liczbaelementow = 2; //liczba tresci;
 
 
 var gdzie = "#tresc_strony__1";
+
+function wlaczEdycje() {
+    document.querySelectorAll('main div').forEach(element => {
+        element.contentEditable = true;
+    });
+}
+
 function dodajstyl(opcja, px) {
     document.getElementById(opcja).addEventListener('change', () => {
         if (px == 'p') {
@@ -34,7 +36,7 @@ function dodajstyl(opcja, px) {
 
 function wypiszkod() {
     sprawdzkod();
-    if (/*document.getElementById('tresc_strony_').innerHTML != '' &&*/ typeof (document.getElementById('tresc_strony_')) != undefined) {
+    if (/*document.getElementById('tresc_strony_').innerHTML != '' &&*/ typeof (document.getElementById('tresc_strony_')) != null) {
         document.getElementById('kod').value = document.querySelector('main').innerHTML;
     } else {
         edytowaniekody();
@@ -42,6 +44,7 @@ function wypiszkod() {
 }
 function edytowaniekody() {
     document.querySelector('main').innerHTML = document.getElementById('kod').value;
+    wlaczEdycje();
     zmienmenu();
 }
 
@@ -202,9 +205,9 @@ function pobieraniestylowcss(styl) {
 
 
 function pobierzaznaczonytekst() {
-    let html = document.querySelector('main').innerHTML;
+    /*let html = document.querySelector('main').innerHTML;
     let zaznaczonytekst = window.getSelection();
-    console.log(zaznaczonytekst);
+    console.log(zaznaczonytekst);*/
 }
 
 
